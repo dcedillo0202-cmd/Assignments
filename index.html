@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Assignments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --night:#0b1433; --night-2:#16245a; --ink:#f3ecff; --soft:#b7b0d9;
+  --glass:rgba(40,46,110,.55); --line:rgba(201,179,240,.22);
+  --mint:#9fe8d2; --mint-deep:#5fc4a8; --lav:#c9b3f0; --pink:#ee8cc4; --gold:#f2cf7a;
+  --deep:#1b1540;
+}
+*{box-sizing:border-box}
+body{margin:0}
+[hidden]{display:none!important}
+img{max-width:100%}
+html,body{min-height:100%}
+body{color:var(--ink);font-family:"Nunito",ui-rounded,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.45;
+  background:
+   radial-gradient(1.2px 1.2px at 12% 18%, #ffffff88 50%, transparent 51%),
+   radial-gradient(1px 1px at 72% 8%, #ffffff99 50%, transparent 51%),
+   radial-gradient(1.4px 1.4px at 40% 62%, #cffff0aa 50%, transparent 51%),
+   radial-gradient(1px 1px at 88% 44%, #ffffff77 50%, transparent 51%),
+   radial-gradient(1.2px 1.2px at 22% 84%, #ffffff88 50%, transparent 51%),
+   radial-gradient(1px 1px at 60% 92%, #ffffff66 50%, transparent 51%),
+   radial-gradient(1px 1px at 5% 50%, #ffffff77 50%, transparent 51%),
+   radial-gradient(900px 500px at 80% -10%, #3a2a7a 0%, transparent 60%),
+   linear-gradient(180deg,var(--night-2),var(--night)) fixed;
+  background-color:var(--night);
+  padding-inline:16px;padding-block:22px 40px}
+.wrap{max-width:760px;margin:0 auto;position:relative}
+.wisteria{position:absolute;right:-10px;top:-26px;width:96px;z-index:3;pointer-events:none;filter:drop-shadow(0 6px 10px #0006)}
+
+header{position:relative;border-radius:24px;overflow:hidden;min-height:170px;display:flex;align-items:flex-end;padding:20px 22px;
+  border:1px solid var(--line);
+  background:linear-gradient(90deg,var(--night) 30%,transparent 75%), url(img/moon.webp) right 42%/58% auto no-repeat, var(--night-2)}
+.moth{position:absolute;left:14px;top:10px;width:78px;filter:drop-shadow(0 0 14px #ee8cc466);animation:flutter 5s ease-in-out infinite}
+@keyframes flutter{50%{transform:translateY(-6px) rotate(-3deg)}}
+.titles{position:relative;margin-left:4px}
+h1{margin:0;font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-style:italic;font-weight:600;font-size:46px;line-height:1.05;
+  background:linear-gradient(90deg,#fff3d6,var(--lav) 55%,var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent;
+  text-wrap:balance}
+.orn{font-family:"Nunito",system-ui,sans-serif;font-style:normal;font-size:.48em;vertical-align:middle;color:var(--gold);-webkit-text-fill-color:var(--gold);text-shadow:0 0 12px #f2cf7a99;letter-spacing:.1em}
+.sub{margin:6px 0 0;color:var(--soft);font-size:13px;font-weight:700}
+.sub b{color:var(--gold)}
+
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:16px 0 10px;padding-right:70px}
+.tab{font:inherit;font-weight:800;font-size:14px;padding:8px 16px;border-radius:999px;color:var(--soft);border:1px solid var(--line);background:#ffffff0a;cursor:pointer}
+.tab i{font-style:normal;margin-left:6px;padding:1px 8px;border-radius:999px;background:#ffffff14;font-size:12px;font-variant-numeric:tabular-nums}
+.tab[aria-selected="true"]{color:var(--deep);background:linear-gradient(90deg,var(--pink),var(--lav),var(--mint));border-color:transparent}
+.tab[aria-selected="true"] i{background:#ffffff66}
+.addbtn{margin-left:auto;font:inherit;font-weight:800;font-size:13px;border:0;border-radius:999px;padding:7px 14px;color:var(--deep);cursor:pointer;
+  background:linear-gradient(90deg,var(--pink),var(--lav),var(--mint))}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}
+.chip{font:inherit;font-size:12px;font-weight:800;border:1px solid var(--line);background:#ffffff0d;color:var(--soft);padding:4px 11px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:linear-gradient(90deg,#ee8cc433,#c9b3f033,#9fe8d233);color:var(--ink);border-color:#c9b3f088}
+
+.panel{position:relative;border-radius:22px;padding:1px;background:linear-gradient(135deg,#ee8cc4aa,#c9b3f066,#9fe8d2aa)}
+.inner{border-radius:21px;background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow:hidden}
+.gh{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:12px 18px 6px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--lav)}
+.gh.late-h{color:var(--pink)}
+.gh span:last-child{letter-spacing:.02em;text-transform:none;color:var(--soft);font-weight:600}
+ul.rows{list-style:none;margin:0;padding:0}
+li.row{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:11px 18px;border-top:1px solid var(--line);
+  transition:opacity .5s ease, transform .5s cubic-bezier(.5,-0.3,.7,1), background .25s}
+.gh + ul.rows li.row:first-child{border-top-color:transparent}
+li.row:hover{background:#c9b3f014}
+li.row.late{background:linear-gradient(90deg,#ee8cc424,transparent 70%)}
+li.row.soon{background:linear-gradient(90deg,#f2cf7a1f,transparent 70%)}
+li.row.floating{opacity:0;transform:translateX(40px) translateY(-8px) scale(.97)}
+li.row.popping{background:linear-gradient(90deg,#c9b3f030,transparent 70%)}
+
+.bub{width:32px;height:32px;border:0;padding:0;cursor:pointer;position:relative;border-radius:50%;flex:none;
+  background:url(img/bubble.webp) center/contain no-repeat;filter:drop-shadow(0 0 6px #9fe8d255);
+  transition:transform .18s ease, filter .18s ease}
+.bub:hover{transform:scale(1.12);filter:drop-shadow(0 0 10px #9fe8d2aa)}
+.bub.swell{transform:scale(1.35);filter:drop-shadow(0 0 14px #f3ecff) brightness(1.25)}
+.bub.burst{animation:burst .28s ease-out forwards}
+@keyframes burst{to{transform:scale(1.9);opacity:0;filter:blur(2px) brightness(1.6)}}
+.bub.filled{filter:drop-shadow(0 0 10px #f2cf7a99) brightness(1.1) saturate(1.4)}
+.bub.filled::after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;font-weight:900;font-size:15px;color:var(--deep);text-shadow:0 0 4px #fff}
+.spark{position:fixed;pointer-events:none;z-index:50;font-size:14px;color:var(--gold);text-shadow:0 0 8px #f2cf7a;
+  animation:fly .9s ease-out forwards}
+@keyframes fly{0%{opacity:1;transform:translate(0,0) scale(.6) rotate(0)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.2) rotate(140deg)}}
+
+.main{min-width:0}
+.name{font-weight:800;color:var(--ink);text-decoration:none;overflow-wrap:anywhere}
+a.name:hover{text-decoration:underline;text-decoration-color:var(--mint);text-underline-offset:3px}
+.meta{display:flex;gap:6px;margin-top:3px;align-items:center;flex-wrap:wrap}
+.pill{font-size:11px;font-weight:800;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.p221{background:#9fe8d22b;color:var(--mint)}
+.p231{background:#ee8cc42e;color:var(--pink)}
+.pother{background:#c9b3f02b;color:var(--lav)}
+.plate{background:var(--pink);color:var(--deep)}
+.type{font-size:12px;color:var(--soft)}
+.due{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.due b{display:block;font-size:14px}
+.due small{font-size:12px;color:var(--soft)}
+.soon .due small{color:var(--gold);font-weight:800}
+.soon .due small::before{content:"☾ "}
+.late .due small{color:var(--pink);font-weight:800}
+.donelist li.row .name{opacity:.75}
+
+.empty{padding:34px 18px;text-align:center;color:var(--soft)}
+.empty strong{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:26px;color:var(--ink);margin-bottom:2px}
+.empty .zz{font-size:22px;color:var(--gold);display:block;margin-bottom:4px}
+
+form.add{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:8px;align-items:end;padding:14px 16px;margin-bottom:12px;
+  border:1px solid var(--line);border-radius:18px;background:var(--glass)}
+form.add label{display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+form.add input,form.add select{font:inherit;font-size:14px;text-transform:none;letter-spacing:0;font-weight:700;min-width:0;width:100%;
+  border:1px solid var(--line);background:#0b143399;color:var(--ink);border-radius:10px;padding:7px 9px}
+.save{font:inherit;font-weight:800;font-size:14px;border:0;border-radius:10px;padding:8px 14px;cursor:pointer;color:var(--deep);
+  background:linear-gradient(90deg,var(--pink),var(--lav),var(--mint))}
+.formerr{grid-column:1/-1;color:var(--pink);font-size:13px;margin:0;font-weight:700}
+
+.foot{margin-top:14px;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--soft)}
+.mute{font:inherit;font-size:12px;font-weight:800;border:1px solid var(--line);background:#ffffff0d;color:var(--soft);padding:4px 11px;border-radius:999px;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;
+  background:#f3ecffee;color:var(--deep);padding:9px 16px;border-radius:999px;font-size:13px;font-weight:800;
+  display:flex;gap:12px;align-items:center;box-shadow:0 10px 30px -10px #000a;max-width:calc(100% - 32px)}
+.toast button{font:inherit;font-weight:900;background:none;border:0;color:#7a4fc4;cursor:pointer;padding:0}
+:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
+
+@media (max-width:560px){
+  h1{font-size:36px}
+  .wisteria{width:78px}
+  header{min-height:190px;background:linear-gradient(0deg,var(--night) 22%,transparent 85%), url(img/moon.webp) center 30%/cover no-repeat, var(--night-2)}
+  .bar{padding-right:50px}
+  form.add{grid-template-columns:1fr 1fr}
+  form.add label.t{grid-column:1/-1}
+  .save{grid-column:1/-1}
+  li.row{gap:10px;padding:10px 12px}
+  .gh{padding-inline:12px}
+}
+@media (prefers-reduced-motion:reduce){
+  .moth{animation:none}
+  li.row,.bub{transition:none}
+  .spark{display:none}
+}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <img class="wisteria" src="img/wisteria.webp" alt="">
+  <header>
+    <img class="moth" src="img/moth.webp" alt="">
+    <div class="titles">
+      <h1><span class="orn">✧ ☾</span> Assignments <span class="orn">☽ ✧</span></h1>
+      <p class="sub" id="sub">This week</p>
+    </div>
+  </header>
+
+  <div class="bar" role="tablist" aria-label="Assignments">
+    <button class="tab" id="tabTodo" role="tab" type="button" aria-selected="true" data-tab="todo">Needs to be done <i id="nTodo">0</i></button>
+    <button class="tab" id="tabDone" role="tab" type="button" aria-selected="false" data-tab="done">Done <i id="nDone">0</i></button>
+    <button class="addbtn" id="addToggle" type="button" aria-expanded="false">+ Add</button>
+  </div>
+
+  <form class="add" id="addForm" hidden>
+    <label class="t">Assignment<input id="fTitle" type="text" placeholder="e.g. Study group notes" autocomplete="off"></label>
+    <label>Class
+      <select id="fClass"><option>BIOL 221</option><option>BIOL 231</option><option>Other</option></select>
+    </label>
+    <label>Type
+      <select id="fType"><option>Homework</option><option>Quiz</option><option>Exam</option><option>Lab</option><option>Discussion</option><option>Other</option></select>
+    </label>
+    <label>Due<input id="fDue" type="date"></label>
+    <button class="save" type="submit">Save</button>
+    <p class="formerr" id="fErr" hidden></p>
+  </form>
+
+  <div class="filters" id="filters" role="group" aria-label="Filter by class"></div>
+
+  <div class="panel"><div class="inner" id="list" aria-live="polite">
+    <div class="empty"><span class="zz">☾</span><strong>Gathering your week…</strong>Loading assignments</div>
+  </div></div>
+
+  <div class="foot">
+    <button class="mute" id="mute" type="button" aria-pressed="false">🔈 Sounds on</button>
+    <span id="syncNote">Connecting to Canvas…</span>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden><span id="toastMsg"></span><button id="toastUndo" type="button">Undo</button></div>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s);
+  const DAY = 86400000;
+  const state = { items: [], tab: "todo", filter: "All", muted: false };
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- dates: week runs Tuesday 12:00am to Monday 11:59pm ---------- */
+  const pad = n => String(n).padStart(2,"0");
+  const ymd = d => d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
+  const parseDay = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y,m-1,d); };
+  function today(){ const d=new Date(); d.setHours(0,0,0,0); return d; }
+  function weekRange(){
+    const t = today();
+    const back = (t.getDay() - 2 + 7) % 7;      // days since Tuesday
+    const start = new Date(t); start.setDate(t.getDate()-back);
+    const end = new Date(start); end.setDate(start.getDate()+6);
+    return { start: ymd(start), end: ymd(end), s: start, e: end };
+  }
+  const daysUntil = s => Math.round((parseDay(s) - today())/DAY);
+  const fmt = s => parseDay(s).toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"});
+  function rel(n){
+    if (n < -1) return Math.abs(n)+" days late";
+    if (n === -1) return "yesterday";
+    if (n === 0) return "today";
+    if (n === 1) return "tomorrow";
+    return "in "+n+" days";
+  }
+  const cls = c => c==="BIOL 221"?"p221":c==="BIOL 231"?"p231":"pother";
+  function esc(s){ const d=document.createElement("div"); d.textContent = s==null?"":String(s); return d.innerHTML; }
+
+  /* ---------- whimsical sounds (made live, no files) ---------- */
+  let ac = null;
+  function ctx(){
+    if (state.muted) return null;
+    try{ ac = ac || new (window.AudioContext||window.webkitAudioContext)(); if (ac.state==="suspended") ac.resume(); }catch(_){ ac=null; }
+    return ac;
+  }
+  function tone(a, {type="sine", f0, f1, t0=0, dur=.2, vol=.2}){
+    const o=a.createOscillator(), g=a.createGain(), t=a.currentTime+t0;
+    o.type=type; o.frequency.setValueAtTime(f0,t);
+    if (f1) o.frequency.exponentialRampToValueAtTime(f1,t+dur*.8);
+    g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(vol,t+.012); g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    o.connect(g).connect(a.destination); o.start(t); o.stop(t+dur+.05);
+  }
+  function soundPop(){
+    const a=ctx(); if(!a) return;
+    tone(a,{f0:260,f1:1100,dur:.09,vol:.35});                 // bloop
+    tone(a,{type:"triangle",f0:1500,f1:2600,t0:.02,dur:.05,vol:.08}); // pop crackle
+    const notes=[1318.5,1661.2,1975.5,2637];                 // E6 G#6 B6 E7 twinkle
+    notes.forEach((f,i)=>{ tone(a,{type:"triangle",f0:f,t0:.12+i*.07,dur:.45,vol:.09}); tone(a,{type:"sine",f0:f*2,t0:.14+i*.07,dur:.3,vol:.03}); });
+  }
+  function soundUnpop(){
+    const a=ctx(); if(!a) return;
+    tone(a,{f0:900,f1:300,dur:.14,vol:.22});
+    tone(a,{type:"triangle",f0:988,t0:.1,dur:.3,vol:.07});
+  }
+  function soundAllDone(){
+    const a=ctx(); if(!a) return;
+    const mel=[1046.5,1318.5,1568,2093,1568,2093,2637];      // C6 E6 G6 C7 ... fairy fanfare
+    mel.forEach((f,i)=>tone(a,{type:"triangle",f0:f,t0:.55+i*.11,dur:.6,vol:.1}));
+    for(let i=0;i<14;i++) tone(a,{type:"sine",f0:2200+Math.random()*2400,t0:1.3+i*.05,dur:.25,vol:.035});
+  }
+  function soundTap(){ const a=ctx(); if(!a) return; tone(a,{type:"triangle",f0:1760,dur:.08,vol:.05}); }
+
+  function sparkles(el){
+    if (reduce) return;
+    const r = el.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
+    const glyphs=["✦","✧","⋆","✦","✧","˚","✦","⋆"];
+    glyphs.forEach((g,i)=>{
+      const s=document.createElement("span"); s.className="spark"; s.textContent=g;
+      const ang=(i/glyphs.length)*Math.PI*2 + Math.random()*.5, dist=26+Math.random()*26;
+      s.style.left=(cx-6)+"px"; s.style.top=(cy-8)+"px";
+      s.style.setProperty("--dx",Math.cos(ang)*dist+"px"); s.style.setProperty("--dy",Math.sin(ang)*dist-10+"px");
+      s.style.color = i%3===0 ? "var(--mint)" : i%3===1 ? "var(--gold)" : "var(--pink)";
+      document.body.appendChild(s); setTimeout(()=>s.remove(),950);
+    });
+  }
+
+  /* ---------- render ---------- */
+  function rowHTML(it, mode){
+    const n = daysUntil(it.due);
+    const isLate = mode==="todo" && n < 0;
+    const rc = mode==="done" ? "" : isLate ? "late" : (n<=2 ? "soon" : "");
+    const name = it.url ? '<a class="name" href="'+esc(it.url)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a>' : '<span class="name">'+esc(it.title)+'</span>';
+    const bubble = '<button class="bub'+(mode==="done"?" filled":"")+'" type="button" data-toggle="'+esc(it.id)+'" aria-label="'+(mode==="done"?"Move back to needs to be done: ":"Mark done: ")+esc(it.title)+'"></button>';
+    const due = mode==="done"
+      ? '<div class="due"><b>'+esc(fmt(it.due))+'</b><small>done</small></div>'
+      : '<div class="due"><b>'+esc(fmt(it.due))+'</b><small>'+esc(rel(n))+'</small></div>';
+    return '<li class="row '+rc+'" data-id="'+esc(it.id)+'">'+bubble+
+      '<div class="main">'+name+'<div class="meta">'+(isLate?'<span class="pill plate">LATE</span>':'')+'<span class="pill '+cls(it.course)+'">'+esc(it.course)+'</span><span class="type">'+esc(it.type)+'</span></div></div>'+due+'</li>';
+  }
+
+  function sets(){
+    const w = weekRange(), f = state.filter;
+    const inF = it => f==="All" || it.course===f;
+    const byDue = (a,b)=> a.due.localeCompare(b.due) || a.title.localeCompare(b.title);
+    const late = state.items.filter(it=>!it.done && it.due < ymd(today()) ).sort(byDue);
+    const week = state.items.filter(it=>!it.done && it.due >= ymd(today()) && it.due <= w.end).sort(byDue);
+    const done = state.items.filter(it=>it.done).sort((a,b)=> (b.doneAt||"").localeCompare(a.doneAt||"") || b.due.localeCompare(a.due));
+    return { w, late: late.filter(inF), week: week.filter(inF), done: done.filter(inF), todoAll: late.length+week.length, doneAll: done.length };
+  }
+
+  function render(){
+    const S = sets();
+    $("#nTodo").textContent = S.todoAll;
+    $("#nDone").textContent = S.doneAll;
+    $("#tabTodo").setAttribute("aria-selected", String(state.tab==="todo"));
+    $("#tabDone").setAttribute("aria-selected", String(state.tab==="done"));
+    const endLabel = S.w.e.toLocaleDateString(undefined,{month:"short",day:"numeric"});
+    const startLabel = S.w.s.toLocaleDateString(undefined,{month:"short",day:"numeric"});
+    $("#sub").innerHTML = "Week of "+esc(startLabel)+" – "+esc(endLabel)+" · <b>due Mon by 11:59 pm</b>";
+
+    const courses = ["All", ...Array.from(new Set(state.items.map(i=>i.course))).sort()];
+    $("#filters").innerHTML = courses.map(c=>'<button class="chip" type="button" data-filter="'+esc(c)+'" aria-pressed="'+(c===state.filter)+'">'+esc(c)+'</button>').join("");
+
+    const list = $("#list");
+    if (state.tab==="todo"){
+      let html="";
+      if (S.late.length){
+        html += '<div class="gh late-h"><span>Late</span><span>'+S.late.length+' still open</span></div><ul class="rows">'+S.late.map(i=>rowHTML(i,"todo")).join("")+'</ul>';
+      }
+      if (S.week.length){
+        html += '<div class="gh"><span>This week</span><span>new week starts Tuesday at midnight</span></div><ul class="rows">'+S.week.map(i=>rowHTML(i,"todo")).join("")+'</ul>';
+      }
+      if (!html) html = '<div class="empty"><span class="zz">☾ ✧ ☽</span><strong>All done for this week</strong>Every bubble popped. Go rest under the moon.</div>';
+      list.innerHTML = html;
+    } else {
+      list.innerHTML = S.done.length
+        ? '<div class="gh"><span>Done</span><span>tap a bubble to move it back</span></div><ul class="rows donelist">'+S.done.map(i=>rowHTML(i,"done")).join("")+'</ul>'
+        : '<div class="empty"><span class="zz">✧</span><strong>Nothing popped yet</strong>Checked-off assignments float over here.</div>';
+    }
+  }
+
+  /* ---------- toast ---------- */
+  let tt=null, lastId=null;
+  function toast(msg,id){
+    lastId=id||null; $("#toastMsg").textContent=msg; $("#toastUndo").hidden=!id; $("#toast").hidden=false;
+    clearTimeout(tt); tt=setTimeout(()=>{$("#toast").hidden=true;},4500);
+  }
+  $("#toastUndo").addEventListener("click",()=>{ if(lastId){ setDone(lastId,false); soundUnpop(); } $("#toast").hidden=true; });
+
+  /* ---------- data + saving (Netlify helpers, with an offline fallback) ---------- */
+  const SNAPSHOT = [{"id":"event-assignment-1311528","title":"Lab 1","course":"BIOL 231","type":"Lab","due":"2026-08-30","url":"https://vvc.instructure.com/calendar?include_contexts=course_41723&month=08&year=2026#assignment_1311528","source":"canvas"},{"id":"event-assignment-1306759","title":"Adversity Discussion Icebreaker","course":"BIOL 231","type":"Discussion","due":"2026-08-31","url":"https://vvc.instructure.com/calendar?include_contexts=course_41723&month=08&year=2026#assignment_1306759","source":"canvas"},{"id":"event-sub-assignment-1273792","title":"Discussion 1 Reply to Topic","course":"BIOL 221","type":"Discussion","due":"2026-08-31","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=08&year=2026","source":"canvas"},{"id":"event-assignment-1306752","title":"Quiz 1","course":"BIOL 231","type":"Quiz","due":"2026-09-06","url":"https://vvc.instructure.com/calendar?include_contexts=course_41723&month=09&year=2026#assignment_1306752","source":"canvas"},{"id":"event-assignment-1315096","title":"Canvas Post #1","course":"BIOL 231","type":"Discussion","due":"2026-09-06","url":"https://vvc.instructure.com/calendar?include_contexts=course_41723&month=09&year=2026#assignment_1315096","source":"canvas"},{"id":"event-assignment-1314138","title":"Labster - Osmosis and Diffusion: Choose the right solution for an intravenous drip","course":"BIOL 231","type":"Lab","due":"2026-09-06","url":"https://vvc.instructure.com/calendar?include_contexts=course_41723&month=09&year=2026#assignment_1314138","source":"canvas"},{"id":"event-assignment-1261117","title":"Aseptic Technique: Culture your sample without contamination","course":"BIOL 221","type":"Lab","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261117","source":"canvas"},{"id":"event-assignment-1261118","title":"Bacterial Growth Curves","course":"BIOL 221","type":"Lab","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261118","source":"canvas"},{"id":"event-assignment-1261119","title":"Bacterial Isolation","course":"BIOL 221","type":"Lab","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261119","source":"canvas"},{"id":"event-sub-assignment-1273793","title":"Discussion 1 Required Replies (2)","course":"BIOL 221","type":"Discussion","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026","source":"canvas"},{"id":"event-assignment-1273794","title":"Discussion 1 - Text","course":"BIOL 221","type":"Discussion","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1273794","source":"canvas"},{"id":"event-assignment-1273797","title":"Discussion 2 - Text","course":"BIOL 221","type":"Discussion","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1273797","source":"canvas"},{"id":"event-assignment-1261158","title":"Homework - Chapter 1","course":"BIOL 221","type":"Homework","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261158","source":"canvas"},{"id":"event-assignment-1261169","title":"Homework - Chapter 2","course":"BIOL 221","type":"Homework","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261169","source":"canvas"},{"id":"event-assignment-1261179","title":"Homework - Chapter 3","course":"BIOL 221","type":"Homework","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261179","source":"canvas"},{"id":"event-assignment-1261180","title":"Homework - Chapter 4","course":"BIOL 221","type":"Homework","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261180","source":"canvas"},{"id":"event-assignment-1261182","title":"Homework - Chapter 6","course":"BIOL 221","type":"Homework","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261182","source":"canvas"},{"id":"event-assignment-1261208","title":"Laboratory Assignment - Ex. 2 - Report","course":"BIOL 221","type":"Lab","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261208","source":"canvas"},{"id":"event-assignment-1261252","title":"Microscopy","course":"BIOL 221","type":"Lab","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261252","source":"canvas"},{"id":"event-assignment-1271359","title":"Practice Quiz - Fall 2026 (webcam + LockDown)","course":"BIOL 221","type":"Quiz","due":"2026-09-08","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1271359","source":"canvas"},{"id":"event-sub-assignment-1273795","title":"Discussion 2 Reply to Topic","course":"BIOL 221","type":"Discussion","due":"2026-09-14","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026","source":"canvas"},{"id":"event-sub-assignment-1273796","title":"Discussion 2 Required Replies (2)","course":"BIOL 221","type":"Discussion","due":"2026-09-14","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026","source":"canvas"},{"id":"event-assignment-1261159","title":"Homework - Chapter 10","course":"BIOL 221","type":"Homework","due":"2026-09-14","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261159","source":"canvas"},{"id":"event-assignment-1261160","title":"Homework - Chapter 11","course":"BIOL 221","type":"Homework","due":"2026-09-14","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261160","source":"canvas"},{"id":"event-assignment-1261227","title":"Laboratory Assignment - Ex. 3 - Report","course":"BIOL 221","type":"Lab","due":"2026-09-14","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261227","source":"canvas"},{"id":"event-assignment-1261233","title":"Laboratory Assignment - Ex. 4 - Report","course":"BIOL 221","type":"Lab","due":"2026-09-14","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261233","source":"canvas"},{"id":"event-assignment-1261235","title":"Laboratory Assignment - Ex. 5 - Report","course":"BIOL 221","type":"Lab","due":"2026-09-14","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261235","source":"canvas"},{"id":"event-assignment-1261237","title":"Laboratory Assignment - Ex. 6 - Report","course":"BIOL 221","type":"Lab","due":"2026-09-14","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261237","source":"canvas"},{"id":"event-assignment-1271362","title":"Quiz 1 - Fall 2026 (webcam + LockDown)","course":"BIOL 221","type":"Quiz","due":"2026-09-14","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1271362","source":"canvas"},{"id":"event-assignment-1271361","title":"Quiz 2 - Fall 2026 (webcam + LockDown)","course":"BIOL 221","type":"Quiz","due":"2026-09-14","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1271361","source":"canvas"},{"id":"event-assignment-1261302","title":"The Gram Stain","course":"BIOL 221","type":"Lab","due":"2026-09-14","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261302","source":"canvas"},{"id":"event-assignment-1318250","title":"Canvas Post #2","course":"BIOL 231","type":"Discussion","due":"2026-09-17","url":"https://vvc.instructure.com/calendar?include_contexts=course_41723&month=09&year=2026#assignment_1318250","source":"canvas"},{"id":"event-assignment-1314139","title":"Labster - Hematology: Introduction to Blood","course":"BIOL 231","type":"Lab","due":"2026-09-20","url":"https://vvc.instructure.com/calendar?include_contexts=course_41723&month=09&year=2026#assignment_1314139","source":"canvas"},{"id":"event-assignment-1306757","title":"Quiz 2","course":"BIOL 231","type":"Quiz","due":"2026-09-20","url":"https://vvc.instructure.com/calendar?include_contexts=course_41723&month=09&year=2026#assignment_1306757","source":"canvas"},{"id":"event-assignment-1261194","title":"Laboratory Assignment - Ex. 13 - Report","course":"BIOL 221","type":"Lab","due":"2026-09-21","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261194","source":"canvas"},{"id":"event-assignment-1261198","title":"Laboratory Assignment - Ex. 15 - Report","course":"BIOL 221","type":"Lab","due":"2026-09-21","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261198","source":"canvas"},{"id":"event-sub-assignment-1273799","title":"Discussion 3 Reply to Topic","course":"BIOL 221","type":"Discussion","due":"2026-09-21","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026","source":"canvas"},{"id":"event-assignment-1273801","title":"Discussion 3 - Text","course":"BIOL 221","type":"Discussion","due":"2026-09-21","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1273801","source":"canvas"},{"id":"event-assignment-1261155","title":"Fermentation","course":"BIOL 221","type":"Lab","due":"2026-09-21","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261155","source":"canvas"},{"id":"event-assignment-1261161","title":"Homework - Chapter 12","course":"BIOL 221","type":"Homework","due":"2026-09-21","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261161","source":"canvas"},{"id":"event-assignment-1261162","title":"Homework - Chapter 13","course":"BIOL 221","type":"Homework","due":"2026-09-21","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261162","source":"canvas"},{"id":"event-assignment-1261187","title":"Homework - Parasitic Protozoans and Helminths","course":"BIOL 221","type":"Homework","due":"2026-09-21","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261187","source":"canvas"},{"id":"event-assignment-1261239","title":"Laboratory Assignment - Ex. 7 - Report","course":"BIOL 221","type":"Lab","due":"2026-09-21","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261239","source":"canvas"},{"id":"event-assignment-1261241","title":"Laboratory Assignment - Ex. 8 - Report","course":"BIOL 221","type":"Lab","due":"2026-09-21","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261241","source":"canvas"},{"id":"event-assignment-1261243","title":"Laboratory Assignment - Ex. 9 - Report","course":"BIOL 221","type":"Lab","due":"2026-09-21","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261243","source":"canvas"},{"id":"event-assignment-1271369","title":"Microbiology Lab Exam 1 - Fall 2026 (webcam + LockDown)","course":"BIOL 221","type":"Exam","due":"2026-09-21","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1271369","source":"canvas"},{"id":"event-assignment-1271363","title":"Quiz 3 - Fall 2026 (webcam + LockDown)","course":"BIOL 221","type":"Quiz","due":"2026-09-21","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1271363","source":"canvas"},{"id":"event-assignment-1306749","title":"Exam 1","course":"BIOL 231","type":"Exam","due":"2026-09-27","url":"https://vvc.instructure.com/calendar?include_contexts=course_41723&month=09&year=2026#assignment_1306749","source":"canvas"},{"id":"event-assignment-1261202","title":"Laboratory Assignment - Ex. 17 - Report","course":"BIOL 221","type":"Lab","due":"2026-09-28","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261202","source":"canvas"},{"id":"event-assignment-1261204","title":"Laboratory Assignment - Ex. 18 - Report","course":"BIOL 221","type":"Lab","due":"2026-09-28","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261204","source":"canvas"},{"id":"event-sub-assignment-1273800","title":"Discussion 3 Required Replies (2)","course":"BIOL 221","type":"Discussion","due":"2026-09-28","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026","source":"canvas"},{"id":"event-assignment-1271365","title":"Exam 1 - Fall 2026 (webcam + LockDown)","course":"BIOL 221","type":"Exam","due":"2026-09-28","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1271365","source":"canvas"},{"id":"event-assignment-1261181","title":"Homework - Chapter 5","course":"BIOL 221","type":"Homework","due":"2026-09-28","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261181","source":"canvas"},{"id":"event-assignment-1261183","title":"Homework - Chapter 7","course":"BIOL 221","type":"Homework","due":"2026-09-28","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261183","source":"canvas"},{"id":"event-assignment-1261170","title":"Homework - Chapter 20","course":"BIOL 221","type":"Homework","due":"2026-09-28","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=09&year=2026#assignment_1261170","source":"canvas"},{"id":"event-assignment-1261184","title":"Homework - Chapter 8","course":"BIOL 221","type":"Homework","due":"2026-10-05","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=10&year=2026#assignment_1261184","source":"canvas"},{"id":"event-assignment-1261185","title":"Homework - Chapter 9","course":"BIOL 221","type":"Homework","due":"2026-10-05","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=10&year=2026#assignment_1261185","source":"canvas"},{"id":"event-assignment-1306748","title":"Quiz 3","course":"BIOL 231","type":"Quiz","due":"2026-10-11","url":"https://vvc.instructure.com/calendar?include_contexts=course_41723&month=10&year=2026#assignment_1306748","source":"canvas"},{"id":"event-assignment-1261163","title":"Homework - Chapter 14","course":"BIOL 221","type":"Homework","due":"2026-10-12","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=10&year=2026#assignment_1261163","source":"canvas"},{"id":"event-assignment-1261164","title":"Homework - Chapter 15","course":"BIOL 221","type":"Homework","due":"2026-10-12","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=10&year=2026#assignment_1261164","source":"canvas"},{"id":"event-assignment-1261165","title":"Homework - Chapter 16","course":"BIOL 221","type":"Homework","due":"2026-10-12","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=10&year=2026#assignment_1261165","source":"canvas"},{"id":"event-assignment-1306750","title":"Exam 2","course":"BIOL 231","type":"Exam","due":"2026-10-18","url":"https://vvc.instructure.com/calendar?include_contexts=course_41723&month=10&year=2026#assignment_1306750","source":"canvas"},{"id":"event-assignment-1273878","title":"Discussion 4 - Text","course":"BIOL 221","type":"Discussion","due":"2026-10-19","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=10&year=2026#assignment_1273878","source":"canvas"},{"id":"event-assignment-1261166","title":"Homework - Chapter 17","course":"BIOL 221","type":"Homework","due":"2026-10-19","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=10&year=2026#assignment_1261166","source":"canvas"},{"id":"event-assignment-1261167","title":"Homework - Chapter 18","course":"BIOL 221","type":"Homework","due":"2026-10-19","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=10&year=2026#assignment_1261167","source":"canvas"},{"id":"event-assignment-1261168","title":"Homework - Chapter 19","course":"BIOL 221","type":"Homework","due":"2026-10-19","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=10&year=2026#assignment_1261168","source":"canvas"},{"id":"event-assignment-1261171","title":"Homework - Chapter 21","course":"BIOL 221","type":"Homework","due":"2026-10-26","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=10&year=2026#assignment_1261171","source":"canvas"},{"id":"event-assignment-1261172","title":"Homework - Chapter 22","course":"BIOL 221","type":"Homework","due":"2026-10-26","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=10&year=2026#assignment_1261172","source":"canvas"},{"id":"event-assignment-1306753","title":"Exam 3","course":"BIOL 231","type":"Exam","due":"2026-11-01","url":"https://vvc.instructure.com/calendar?include_contexts=course_41723&month=11&year=2026#assignment_1306753","source":"canvas"},{"id":"event-assignment-1306758","title":"Quiz 4","course":"BIOL 231","type":"Quiz","due":"2026-11-01","url":"https://vvc.instructure.com/calendar?include_contexts=course_41723&month=11&year=2026#assignment_1306758","source":"canvas"},{"id":"event-assignment-1273880","title":"Discussion 5 - Text","course":"BIOL 221","type":"Discussion","due":"2026-11-02","url":"https://vvc.instructure.com/calendar?include_contexts=course_41702&month=11&year=2026#assignment_1273880","source":"canvas"}];
+  const LS_DONE="asgDoneLocal", LS_MANUAL="asgManualLocal";
+  const lsGet=(k,d)=>{ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(_){ return d; } };
+  const lsSet=(k,v)=>{ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(_){} };
+  state.online=false; state.doneMap={}; state.canvas=[]; state.manual=[];
+
+  function merge(){
+    const all=[...state.canvas, ...state.manual];
+    state.items = all.map(it=>({...it, done: !!state.doneMap[it.id], doneAt: state.doneMap[it.id]||null}));
+    render();
+  }
+
+  async function post(body){
+    const r = await fetch("/api/state",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+    if(!r.ok) throw new Error("save failed");
+    return r.json();
+  }
+
+  async function load(){
+    try{
+      const [fr, sr] = await Promise.all([fetch("/api/feed"), fetch("/api/state",{cache:"no-store"})]);
+      if(!fr.ok || !sr.ok) throw new Error("helpers unavailable");
+      const feed = await fr.json(); let st = await sr.json();
+      if(!st.seeded){ st = await post({action:"seed", items: feed.items.map(i=>({id:i.id,due:i.due}))}); }
+      state.online=true; state.canvas=feed.items; state.manual=st.manual||[]; state.doneMap=st.done||{};
+      $("#syncNote").textContent = "Synced with Canvas " + new Date(feed.fetchedAt).toLocaleTimeString([], {hour:"numeric",minute:"2-digit"});
+    }catch(e){
+      state.online=false;
+      if(!state.canvas.length){
+        state.canvas = SNAPSHOT;
+        const local = lsGet(LS_DONE,null);
+        if(local) state.doneMap = local;
+        else { SNAPSHOT.forEach(i=>{ if(i.due < "2026-09-22") state.doneMap[i.id]="seed"; }); lsSet(LS_DONE,state.doneMap); }
+        state.manual = lsGet(LS_MANUAL,[]);
+      }
+      $("#syncNote").textContent = "Offline copy · checkmarks save on this device only";
+    }
+    merge();
+  }
+
+  async function setDone(id, done){
+    const prev = state.doneMap[id];
+    if(done) state.doneMap[id]=new Date().toISOString(); else delete state.doneMap[id];
+    merge();
+    if(!state.online){ lsSet(LS_DONE,state.doneMap); return; }
+    try{ const st = await post({action:"done", id, value: done}); state.doneMap = st.done||state.doneMap; merge(); }
+    catch(e){ if(prev) state.doneMap[id]=prev; else delete state.doneMap[id]; merge(); toast("Couldn't save that, try again"); }
+  }
+
+  document.addEventListener("click", e=>{
+    const b = e.target.closest("[data-toggle]");
+    if (b){
+      const id=b.getAttribute("data-toggle"), it=state.items.find(i=>i.id===id); if(!it) return;
+      const row=b.closest("li.row");
+      if (!it.done){
+        const wasLast = sets().todoAll === 1;
+        soundPop();
+        b.classList.add("swell"); row.classList.add("popping");
+        setTimeout(()=>{ b.classList.add("burst"); sparkles(b); }, reduce?0:140);
+        setTimeout(()=>{ row.classList.add("floating"); }, reduce?0:380);
+        setTimeout(()=>{ setDone(id,true); toast("✧ Popped: "+it.title, id); if (wasLast) soundAllDone(); }, reduce?0:880);
+      } else {
+        soundUnpop();
+        row.classList.add("floating");
+        setTimeout(()=>{ setDone(id,false); toast("Moved back: "+it.title); }, reduce?0:400);
+      }
+      return;
+    }
+    const t = e.target.closest("[data-tab]");
+    if (t){ state.tab=t.getAttribute("data-tab"); soundTap(); try{localStorage.setItem("asgTab",state.tab);}catch(_){} render(); return; }
+    const f = e.target.closest("[data-filter]");
+    if (f){ state.filter=f.getAttribute("data-filter"); soundTap(); try{localStorage.setItem("asgFilter",state.filter);}catch(_){} render(); }
+  });
+
+  /* ---------- mute ---------- */
+  function paintMute(){ $("#mute").textContent = state.muted ? "🔇 Sounds off" : "🔈 Sounds on"; $("#mute").setAttribute("aria-pressed",String(state.muted)); }
+  $("#mute").addEventListener("click",()=>{ state.muted=!state.muted; try{localStorage.setItem("asgMuted",state.muted?"1":"0");}catch(_){} paintMute(); soundTap(); });
+  try{ state.muted = localStorage.getItem("asgMuted")==="1"; const t=localStorage.getItem("asgTab"); if(t==="todo"||t==="done") state.tab=t; const f=localStorage.getItem("asgFilter"); if(f) state.filter=f; }catch(_){}
+  paintMute();
+
+  /* ---------- add ---------- */
+  $("#addToggle").addEventListener("click",()=>{
+    const f=$("#addForm"); f.hidden=!f.hidden; soundTap();
+    $("#addToggle").setAttribute("aria-expanded",String(!f.hidden)); $("#addToggle").textContent=f.hidden?"+ Add":"Close";
+    if(!f.hidden){ if(!$("#fDue").value) $("#fDue").value=ymd(today()); $("#fTitle").focus(); }
+  });
+  $("#addForm").addEventListener("submit", async e=>{
+    e.preventDefault();
+    const title=$("#fTitle").value.trim(), due=$("#fDue").value, err=$("#fErr");
+    if(!title||!due){ err.textContent="Add a name and a due date first."; err.hidden=false; return; }
+    err.hidden=true;
+    const item={title,course:$("#fClass").value,type:$("#fType").value,due};
+    try{
+      if(state.online){ const st=await post({action:"add", item}); state.manual=st.manual||state.manual; }
+      else { state.manual.push({...item, id:"manual-"+Date.now().toString(36), url:"", source:"manual"}); lsSet(LS_MANUAL,state.manual); }
+      merge(); $("#fTitle").value=""; toast("Added: "+title); soundUnpop();
+    }catch(e2){ err.textContent="Couldn't save that, try again."; err.hidden=false; }
+  });
+
+  /* re-render at midnight so the week flips on its own */
+  setInterval(()=>{ const k=ymd(today()); if(k!==render.k){ render.k=k; render(); } }, 60000);
+  render.k = ymd(today());
+
+  load();
+  setInterval(()=>{ if(document.visibilityState==="visible") load(); }, 10*60*1000);
+  document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==="visible") load(); });
+})();
+</script>
+
+</body>
+</html>
